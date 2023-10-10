@@ -14,104 +14,106 @@ module demo#(
 
   logic [1:0] state, nstate;
   logic [2:0] coin;
-  assign coin = {quarter_i,dime_i,nickel_i};
-
+ // assign coin = {quarter_i,dime_i,nickel_i};
   always_ff@(posedge(clk_i)) begin
+    coin <= {quarter_i,dime_i,nickel_i};
     state <= nstate;
+  end
+  always_comb begin
     case(state)
       INIT: begin
         case(coin)
           3'b001: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= FIV;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = FIV;
           end
           3'b010: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= TEN;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = TEN;
           end
           3'b100: begin
-            soda_o   <= 1'b1;
-            change_o <= 3'b001;
-            nstate   <= INIT;
+            soda_o   = 1'b1;
+            change_o = 3'b001;
+            nstate   = INIT;
           end
           default: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= INIT;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = INIT;
           end
         endcase
       end
       FIV: begin
         case(coin)
           3'b001: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= TEN;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = TEN;
           end
           3'b010: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= FIF;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = FIF;
           end
           3'b100: begin
-            soda_o   <= 1'b1;
-            change_o <= 3'b010;
-            nstate   <= INIT;
+            soda_o   = 1'b1;
+            change_o = 3'b010;
+            nstate   = INIT;
           end
           default: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= FIV;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = FIV;
           end
         endcase
       end
       TEN: begin
         case(coin)
           3'b001: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= FIF;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = FIF;
           end
           3'b010: begin
-            soda_o   <= 1'b1;
-            change_o <= 3'b000;
-            nstate   <= INIT;
+            soda_o   = 1'b1;
+            change_o = 3'b000;
+            nstate   = INIT;
             end
           3'b100: begin
-            soda_o   <= 1'b1;
-            change_o <= 3'b011;
-            nstate   <= INIT;
+            soda_o   = 1'b1;
+            change_o = 3'b011;
+            nstate   = INIT;
             end
           default: begin
-            soda_o <= 1'b0;
-            change_o <= 3'b000;
-            nstate <= TEN;
+            soda_o = 1'b0;
+            change_o = 3'b000;
+            nstate = TEN;
           end
         endcase
       end
       FIF: begin
         case(coin)
           3'b001: begin
-            soda_o   <= 1'b1;
-            change_o <= 3'b000;
-            nstate   <= INIT;
+            soda_o   = 1'b1;
+            change_o = 3'b000;
+            nstate   = INIT;
           end
           3'b010: begin
-            soda_o   <= 1'b1;
-            change_o <= 3'b001;
-            nstate   <= INIT;
+            soda_o   = 1'b1;
+            change_o = 3'b001;
+            nstate   = INIT;
             end
           3'b100: begin
-            soda_o   <= 1'b1;
-            change_o <= 3'b100;
-            nstate   <= INIT;
+            soda_o   = 1'b1;
+            change_o = 3'b100;
+            nstate   = INIT;
             end
           default: begin
-            soda_o   <= 1'b0;
-            change_o <= 3'b000;
-            nstate   <= FIF;
+            soda_o   = 1'b0;
+            change_o = 3'b000;
+            nstate   = FIF;
           end
         endcase
       end

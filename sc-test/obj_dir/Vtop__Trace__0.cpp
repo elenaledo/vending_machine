@@ -23,17 +23,17 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buffe
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 1);
     // Body
-    bufp->chgBit(oldp+0,(vlSelf->nickel_i));
-    bufp->chgBit(oldp+1,(vlSelf->dime_i));
-    bufp->chgBit(oldp+2,(vlSelf->quarter_i));
-    bufp->chgBit(oldp+3,(vlSelf->soda_o));
-    bufp->chgCData(oldp+4,(vlSelf->change_o),3);
-    bufp->chgBit(oldp+5,(vlSelf->clk_i));
-    bufp->chgCData(oldp+6,(vlSelf->top__DOT__dut__DOT__state),2);
-    bufp->chgCData(oldp+7,(vlSelf->top__DOT__dut__DOT__nstate),2);
-    bufp->chgCData(oldp+8,((((IData)(vlSelf->quarter_i) 
-                             << 2U) | (((IData)(vlSelf->dime_i) 
-                                        << 1U) | (IData)(vlSelf->nickel_i)))),3);
+    if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[1U])) {
+        bufp->chgCData(oldp+0,(vlSelf->top__DOT__dut__DOT__state),2);
+        bufp->chgCData(oldp+1,(vlSelf->top__DOT__dut__DOT__nstate),2);
+        bufp->chgCData(oldp+2,(vlSelf->top__DOT__dut__DOT__coin),3);
+    }
+    bufp->chgBit(oldp+3,(vlSelf->nickel_i));
+    bufp->chgBit(oldp+4,(vlSelf->dime_i));
+    bufp->chgBit(oldp+5,(vlSelf->quarter_i));
+    bufp->chgBit(oldp+6,(vlSelf->soda_o));
+    bufp->chgCData(oldp+7,(vlSelf->change_o),3);
+    bufp->chgBit(oldp+8,(vlSelf->clk_i));
 }
 
 void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedFst* /*unused*/) {
@@ -41,11 +41,8 @@ void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedFst* /*unused*/) {
     // Init
     Vtop___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<Vtop___024root*>(voidSelf);
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VlUnpacked<CData/*0:0*/, 1> __Vm_traceActivity;
-    for (int __Vi0 = 0; __Vi0 < 1; ++__Vi0) {
-        __Vm_traceActivity[__Vi0] = 0;
-    }
     // Body
     vlSymsp->__Vm_activity = false;
-    __Vm_traceActivity[0U] = 0U;
+    vlSymsp->TOP.__Vm_traceActivity[0U] = 0U;
+    vlSymsp->TOP.__Vm_traceActivity[1U] = 0U;
 }

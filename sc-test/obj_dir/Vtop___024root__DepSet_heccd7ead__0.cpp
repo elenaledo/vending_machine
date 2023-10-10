@@ -13,31 +13,31 @@ void Vtop___024root___eval_act(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_act\n"); );
 }
 
-extern const VlUnpacked<CData/*1:0*/, 128> Vtop__ConstPool__TABLE_hf444d81c_0;
-extern const VlUnpacked<CData/*0:0*/, 128> Vtop__ConstPool__TABLE_h724ad9f2_0;
-extern const VlUnpacked<CData/*2:0*/, 128> Vtop__ConstPool__TABLE_h0f0b0160_0;
-extern const VlUnpacked<CData/*1:0*/, 128> Vtop__ConstPool__TABLE_h9a955e73_0;
+extern const VlUnpacked<CData/*0:0*/, 32> Vtop__ConstPool__TABLE_hba37a208_0;
+extern const VlUnpacked<CData/*2:0*/, 32> Vtop__ConstPool__TABLE_h9962297d_0;
+extern const VlUnpacked<CData/*1:0*/, 32> Vtop__ConstPool__TABLE_hafc31530_0;
 
 VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__0\n"); );
     // Init
-    CData/*6:0*/ __Vtableidx1;
+    CData/*4:0*/ __Vtableidx1;
     __Vtableidx1 = 0;
     // Body
-    __Vtableidx1 = ((((IData)(vlSelf->quarter_i) << 6U) 
-                     | (((IData)(vlSelf->dime_i) << 5U) 
-                        | ((IData)(vlSelf->nickel_i) 
-                           << 4U))) | (((IData)(vlSelf->top__DOT__dut__DOT__state) 
-                                        << 2U) | (IData)(vlSelf->top__DOT__dut__DOT__nstate)));
-    vlSelf->top__DOT__dut__DOT__state = Vtop__ConstPool__TABLE_hf444d81c_0
+    vlSelf->top__DOT__dut__DOT__coin = (((IData)(vlSelf->quarter_i) 
+                                         << 2U) | (
+                                                   ((IData)(vlSelf->dime_i) 
+                                                    << 1U) 
+                                                   | (IData)(vlSelf->nickel_i)));
+    vlSelf->top__DOT__dut__DOT__state = vlSelf->top__DOT__dut__DOT__nstate;
+    __Vtableidx1 = (((IData)(vlSelf->top__DOT__dut__DOT__coin) 
+                     << 2U) | (IData)(vlSelf->top__DOT__dut__DOT__state));
+    vlSelf->soda_o = Vtop__ConstPool__TABLE_hba37a208_0
         [__Vtableidx1];
-    vlSelf->soda_o = Vtop__ConstPool__TABLE_h724ad9f2_0
+    vlSelf->change_o = Vtop__ConstPool__TABLE_h9962297d_0
         [__Vtableidx1];
-    vlSelf->change_o = Vtop__ConstPool__TABLE_h0f0b0160_0
-        [__Vtableidx1];
-    vlSelf->top__DOT__dut__DOT__nstate = Vtop__ConstPool__TABLE_h9a955e73_0
+    vlSelf->top__DOT__dut__DOT__nstate = Vtop__ConstPool__TABLE_hafc31530_0
         [__Vtableidx1];
 }
 
@@ -48,6 +48,7 @@ void Vtop___024root___eval_nba(Vtop___024root* vlSelf) {
     // Body
     if ((1ULL & vlSelf->__VnbaTriggered.word(0U))) {
         Vtop___024root___nba_sequent__TOP__0(vlSelf);
+        vlSelf->__Vm_traceActivity[1U] = 1U;
     }
 }
 

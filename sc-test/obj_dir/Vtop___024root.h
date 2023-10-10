@@ -22,9 +22,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     VL_OUT8(change_o,2,0);
     CData/*1:0*/ top__DOT__dut__DOT__state;
     CData/*1:0*/ top__DOT__dut__DOT__nstate;
+    CData/*2:0*/ top__DOT__dut__DOT__coin;
     CData/*0:0*/ __Vtrigprevexpr___TOP__clk_i__0;
     CData/*0:0*/ __VactContinue;
+    IData/*31:0*/ __VstlIterCount;
     IData/*31:0*/ __VactIterCount;
+    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
+    VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VactTriggered;
     VlTriggerVec<1> __VnbaTriggered;
 
